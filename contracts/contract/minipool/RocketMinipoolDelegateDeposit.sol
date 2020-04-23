@@ -100,7 +100,7 @@ contract RocketMinipoolDelegateDeposit is RocketMinipoolBase {
         // Remove deposit
         removeDeposit(_depositID);
         // Transfer refund amount to refund address
-        (bool success,) = _refundAddress.call.value(amount)("");
+        (bool success,) = _refundAddress.call{ value: amount }("");
         require(success, "Refund amount could not be transferred to refund address");
         // Publish refund event
         publisher = PublisherInterface(getContractAddress("utilPublisher"));

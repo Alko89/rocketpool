@@ -87,7 +87,7 @@ contract RocketDeposit is RocketBase {
 
         // Transfer deposit amount to vault
         rocketDepositVault = RocketDepositVaultInterface(getContractAddress("rocketDepositVault"));
-        require(rocketDepositVault.depositEther.value(msg.value)(), "Deposit could not be transferred to vault");
+        require(rocketDepositVault.depositEther{ value: msg.value }(), "Deposit could not be transferred to vault");
 
         // Assign chunks
         rocketDepositQueue.assignChunks(_durationID);
@@ -118,7 +118,7 @@ contract RocketDeposit is RocketBase {
 
         // Transfer refund amount to depositor
         RocketGroupAccessorContractInterface depositor = RocketGroupAccessorContractInterface(_depositorAddress);
-        require(depositor.rocketpoolEtherDeposit.value(refundAmount)(), "Deposit refund could not be sent to group depositor");
+        require(depositor.rocketpoolEtherDeposit{ value: refundAmount }(), "Deposit refund could not be sent to group depositor");
 
         // Return refunded amount
         return refundAmount;
@@ -145,7 +145,7 @@ contract RocketDeposit is RocketBase {
 
         // Transfer refund amount to depositor
         RocketGroupAccessorContractInterface depositor = RocketGroupAccessorContractInterface(_depositorAddress);
-        require(depositor.rocketpoolEtherDeposit.value(refundAmount)(), "Minipool deposit refund could not be sent to group depositor");
+        require(depositor.rocketpoolEtherDeposit{ value: refundAmount }(), "Minipool deposit refund could not be sent to group depositor");
 
         // Return refunded amount
         return refundAmount;

@@ -249,7 +249,7 @@ contract RocketNodeContract {
             emit NodeDepositMinipool(minipool, "RPL", rocketMinipool.getNodeDepositRPL(), now);
         }
         // Transfer the ether to the minipool now
-        rocketMinipool.nodeDeposit.value(rocketMinipool.getNodeDepositEther())();
+        rocketMinipool.nodeDeposit{ value: rocketMinipool.getNodeDepositEther() }();
         if (rocketMinipool.getNodeDepositEther() > 0) {
             emit NodeDepositMinipool(minipool, "ETH", rocketMinipool.getNodeDepositEther(), now);
         }

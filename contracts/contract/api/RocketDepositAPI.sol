@@ -187,7 +187,7 @@ contract RocketDepositAPI is RocketBase {
         checkDepositIsValid(msg.value, msg.sender, _groupID, _userID, _durationID);
         // Send and create deposit
         rocketDeposit = RocketDepositInterface(getContractAddress("rocketDeposit"));
-        bytes32 depositID = rocketDeposit.create.value(msg.value)(_userID, _groupID, _durationID);
+        bytes32 depositID = rocketDeposit.create{ value: msg.value }(_userID, _groupID, _durationID);
         require(depositID != 0x0, "Deposit could not be created");
         // All good? Fire the event for the new deposit
         emit Deposit(msg.sender, _userID, _groupID, depositID, _durationID, msg.value, now);   

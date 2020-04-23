@@ -129,7 +129,7 @@ contract RocketMinipoolDelegateStatus is RocketMinipoolBase {
         // Set node user fee
         node.userFee = rocketNodeSettings.getFeePerc();
         // Send deposit to casper deposit contract
-        casperDeposit.deposit.value(launchAmount)(_validatorPubkey, abi.encodePacked(withdrawalCredentials), _validatorSignature, _validatorDepositDataRoot);
+        casperDeposit.deposit{ value: launchAmount }(_validatorPubkey, abi.encodePacked(withdrawalCredentials), _validatorSignature, _validatorDepositDataRoot);
         // Set Staking status
         setStatus(3);
         // Success
