@@ -1,9 +1,9 @@
-pragma solidity 0.5.8; 
+pragma solidity 0.6.6; 
 
-contract AddressSetStorageInterface {
-    function getCount(bytes32 _key) external view returns (uint);
-    function getItem(bytes32 _key, uint _index) external view returns (address);
-    function getIndexOf(bytes32 _key, address _value) external view returns (int);
-    function addItem(bytes32 _key, address _value) external;
-    function removeItem(bytes32 _key, address _value) external;
+abstract contract AddressSetStorageInterface {
+    function getCount(bytes32 _key) virtual external view returns (uint);
+    function getItem(bytes32 _key, uint _index) virtual external view returns (address);
+    function getIndexOf(bytes32 _key, address _value) virtual external view returns (int);
+    function addItem(bytes32 _key, address _value) virtual external;
+    function removeItem(bytes32 _key, address _value) virtual external;
 }

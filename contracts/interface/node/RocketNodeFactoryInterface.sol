@@ -1,8 +1,8 @@
-pragma solidity 0.5.8; 
+pragma solidity 0.6.6; 
 
 
 // Our node interface
-contract RocketNodeFactoryInterface {
+abstract contract RocketNodeFactoryInterface {
     // Methods
-    function createRocketNodeContract(address _nodeOwnerAddress) public returns(address);
+    function createRocketNodeContract(address _nodeOwnerAddress) virtual public returns(address);
 }

@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 import "./lib/SafeMath.sol";
 import "./RocketBase.sol";

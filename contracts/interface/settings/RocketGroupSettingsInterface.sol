@@ -1,12 +1,12 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 
 // Our group interface
-contract RocketGroupSettingsInterface {
+abstract contract RocketGroupSettingsInterface {
     // Getters
-    function getDefaultFee() public view returns (uint256);
-    function getMaxFee() public view returns (uint256);
-    function getNewAllowed() public view returns (bool);
-    function getNewFee() public view returns (uint256);
-    function getNewFeeAddress() public view returns (address payable);
+    function getDefaultFee() virtual public view returns (uint256);
+    function getMaxFee() virtual public view returns (uint256);
+    function getNewAllowed() virtual public view returns (bool);
+    function getNewFee() virtual public view returns (uint256);
+    function getNewFeeAddress() virtual public view returns (address payable);
 }

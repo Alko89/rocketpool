@@ -1,14 +1,14 @@
-pragma solidity 0.5.8; 
+pragma solidity 0.6.6; 
 
 
 // Our group contract interface
-contract RocketGroupContractInterface {
+abstract contract RocketGroupContractInterface {
     // Getters
-    function getOwner() public view returns(address);
-    function getFeePerc() public view returns(uint256);
-    function getFeePercRocketPool() public view returns(uint256);
-    function getFeeAddress() public view returns(address);
-    function hasDepositor(address _depositorAddress) public view returns (bool);
-    function hasWithdrawer(address _withdrawerAddress) public view returns (bool);
-    function setFeePercRocketPool(uint256 _stakingFeePerc) public returns(bool);
+    function getOwner() virtual public view returns(address);
+    function getFeePerc() virtual public view returns(uint256);
+    function getFeePercRocketPool() virtual public view returns(uint256);
+    function getFeeAddress() virtual public view returns(address);
+    function hasDepositor(address _depositorAddress) virtual public view returns (bool);
+    function hasWithdrawer(address _withdrawerAddress) virtual public view returns (bool);
+    function setFeePercRocketPool(uint256 _stakingFeePerc) virtual public returns(bool);
 }

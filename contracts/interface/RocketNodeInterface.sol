@@ -1,7 +1,7 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
-contract RocketNodeInterface {
-    function getAvailableNodeCount(string memory _durationID) public returns (uint256);
-    function getAvailableNodeCount(bool _trusted, string memory _durationID) public returns (uint256);
-    function getRandomAvailableNode(bool _trusted, string memory _durationID, uint256 _seed, uint256 _offset) public returns (address);
+abstract contract RocketNodeInterface {
+    function getAvailableNodeCount(string memory _durationID) virtual public returns (uint256);
+    function getAvailableNodeCount(bool _trusted, string memory _durationID) virtual public returns (uint256);
+    function getRandomAvailableNode(bool _trusted, string memory _durationID, uint256 _seed, uint256 _offset) virtual public returns (address);
 }

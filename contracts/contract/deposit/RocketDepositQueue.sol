@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 
 import "../../RocketBase.sol";
@@ -99,7 +99,7 @@ contract RocketDepositQueue is RocketBase {
 
 
     // Default payable function - for deposit vault withdrawals
-    function() external payable onlyLatestContract("rocketDepositVault", msg.sender) {}
+    fallback() external payable onlyLatestContract("rocketDepositVault", msg.sender) {}
 
 
     // Get the balance of the deposit queue by duration

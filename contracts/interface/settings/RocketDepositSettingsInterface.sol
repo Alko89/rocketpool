@@ -1,19 +1,19 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 
 // Our deposit and withdrawals interface
-contract RocketDepositSettingsInterface {
+abstract contract RocketDepositSettingsInterface {
     // Getters
-    function getDepositAllowed() public view returns (bool);
-    function getProcessDepositQueueAllowed() public view returns (bool);
-    function getDepositChunkSize() public view returns (uint256);
-    function getDepositMin() public view returns (uint256);
-    function getDepositMax() public view returns (uint256);
-    function getChunkAssignMax() public view returns (uint256);
-    function getDepositQueueSizeMax() public view returns (uint256);
-    function getRefundDepositAllowed() public view returns (bool);
-    function getCurrentDepositMax(string memory _durationID) public returns (uint256);
-    function getStakingWithdrawalAllowed() public view returns (bool);
-    function getWithdrawalAllowed() public view returns (bool);
-    function getStakingWithdrawalFeePerc() public view returns (uint256);
+    function getDepositAllowed() virtual public view returns (bool);
+    function getProcessDepositQueueAllowed() virtual public view returns (bool);
+    function getDepositChunkSize() virtual public view returns (uint256);
+    function getDepositMin() virtual public view returns (uint256);
+    function getDepositMax() virtual public view returns (uint256);
+    function getChunkAssignMax() virtual public view returns (uint256);
+    function getDepositQueueSizeMax() virtual public view returns (uint256);
+    function getRefundDepositAllowed() virtual public view returns (bool);
+    function getCurrentDepositMax(string memory _durationID) virtual public returns (uint256);
+    function getStakingWithdrawalAllowed() virtual public view returns (bool);
+    function getWithdrawalAllowed() virtual public view returns (bool);
+    function getStakingWithdrawalFeePerc() virtual public view returns (uint256);
 }

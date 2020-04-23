@@ -1,7 +1,7 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 /// @title Rocket Pool deposit vault
-contract RocketDepositVaultInterface {
-    function depositEther() payable external returns (bool);
-    function withdrawEther(address _withdrawalAddress, uint256 _amount) external returns (bool);
+abstract contract RocketDepositVaultInterface {
+    function depositEther() virtual payable external returns (bool);
+    function withdrawEther(address _withdrawalAddress, uint256 _amount) virtual external returns (bool);
 }

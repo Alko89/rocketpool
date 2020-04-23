@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 
 /// @title The primary persistent storage for Rocket Pool

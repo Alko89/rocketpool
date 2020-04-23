@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 
 import "../../RocketBase.sol";
@@ -13,9 +13,7 @@ contract RocketETHToken is StandardToken, RocketBase {
 
     string public name = "Rocket Pool ETH";
     string public symbol = "rETH";
-    string public version = "1.0";
     uint8 public constant decimals = 18;
-    uint256 public totalSupply = 0;
 
 
     /*** Events *****************/
@@ -58,11 +56,14 @@ contract RocketETHToken is StandardToken, RocketBase {
 
 
     /// @dev RocketETHToken constructor
-    constructor(address _rocketStorageAddress) RocketBase(_rocketStorageAddress) public {}
+    constructor(address _rocketStorageAddress) RocketBase(_rocketStorageAddress) public {
+        version = 1;
+        totalSupply = 0;
+    }
 
 
     /// @dev Fallback payable function, receives ether from beacon chain withdrawals
-    function() external payable {
+    fallback() external payable {
         emit Deposit(msg.sender, msg.value, now);
     }
 

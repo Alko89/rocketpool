@@ -1,6 +1,6 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
-contract RocketNodeTasksInterface {
-    function run(address _nodeAddress) external;
-    function runOne(address _nodeAddress, address _taskAddress) external;
+abstract contract RocketNodeTasksInterface {
+    function run(address _nodeAddress) virtual external;
+    function runOne(address _nodeAddress, address _taskAddress) virtual external;
 }

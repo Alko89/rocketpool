@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 
 import "../utils/Ownable.sol";
@@ -19,8 +19,12 @@ contract DummyRocketPoolToken is StandardToken, Ownable {
     string public version = "1.0";
     uint8 public constant decimals = 18;
     uint256 public exponent = 10**uint256(decimals);
-    uint256 public totalSupply = 0;                             // The current total supply
     uint256 public totalSupplyCap = 18 * (10**6) * exponent;    // 18 Million tokens
+
+    
+    constructor() public {
+        totalSupply = 0;
+    }
 
 
     /**** Libs *****************/

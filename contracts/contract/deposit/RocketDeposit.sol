@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 
 import "../../RocketBase.sol";
@@ -68,7 +68,7 @@ contract RocketDeposit is RocketBase {
 
 
     // Default payable function - for deposit vault withdrawals or minipool refunds
-    function() external payable onlyDepositVaultOrMinipool() {}
+    fallback() external payable onlyDepositVaultOrMinipool() {}
 
 
     // Create a new deposit

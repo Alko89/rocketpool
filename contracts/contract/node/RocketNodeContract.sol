@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 // Interfaces
 import "../../interface/token/ERC20.sol";
@@ -185,7 +185,7 @@ contract RocketNodeContract {
 
 
     /// @dev Default payable method to receive minipool node withdrawals
-    function() external payable {}
+    fallback() external payable {}
 
 
     /// @dev Reserves a deposit of Ether/RPL at the current rate. The node operator has 24hrs to deposit both once its locked in or it will expire.

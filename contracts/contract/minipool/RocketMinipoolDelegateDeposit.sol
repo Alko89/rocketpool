@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 
 // Interfaces
@@ -262,7 +262,7 @@ contract RocketMinipoolDelegateDeposit is RocketMinipoolBase {
         uint256 lastDepositIndex = depositIDs.length - 1;
         deposits[depositIDs[lastDepositIndex]].idIndex = currentDepositIndex;
         depositIDs[currentDepositIndex] = depositIDs[lastDepositIndex];
-        depositIDs.length--;
+        // depositIDs.length--; // TODO: Why is this necesary?
         // Delete deposit
         delete deposits[_depositID];
         // Fire the event
